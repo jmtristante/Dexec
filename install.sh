@@ -12,7 +12,7 @@ executable_file=$ruta/dexec
 
 bashrc=~/.bashrc
 
-echo "Añadiendo lineas a bashrc"
-echo "#Mis scripts">>$bashrc
+echo "#Dexec">>$bashrc
 echo "export PATH=\"\$PATH:"$ruta"\"">>$bashrc
 echo "source ${completition_file}">>$bashrc
+echo "Instalacion completada"
