@@ -15,4 +15,4 @@ bashrc=~/.bashrc
 echo "Añadiendo lineas a bashrc"
 echo "#Mis scripts">>$bashrc
 echo "export PATH=\"\$PATH:"$ruta"\"">>$bashrc
-echo "source /home/javi/dexec/dexec-completion.bash">>$bashrc
+echo "source ${completition_file}">>$bashrc
