@@ -1,0 +1,24 @@
+#!/bin/bash
+ROJO="\e[31m"
+VERDE="\e[32m"
+AMARILLO="\e[33m"
+AZUL="\e[34m"
+CF="\e[0m"
+
+if [ -z "$1" ]; then
+ echo -e "${ROJO}Necesita nombre de contenedor${CF}"
+ exit 2
+fi
+
+nombre=$(docker ps --filter "name=$1" --format {{.Names}})
+imagen=$(docker ps --filter "name=$1" --format {{.Image}})
+id=$(docker ps --filter "name=$1" --format {{.ID}})
+
+nombrex="${AZUL}${nombre}${CF}"
+imagenx="${AZUL}${imagen}${CF}"
+idx="${AMARILLO}${id}${CF}"
+
+echo -e "${VERDE}Abriendo bash:${CF} ${nombrex}(${idx}) - ${imagenx}"
+
+
+docker exec -it $1 /bin/bash
